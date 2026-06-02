@@ -1,4 +1,4 @@
-# Spatial-GT-seq DNA Sequencing Data Processing
+# Spatial FFPE-GT-seq DNA Sequencing Data Processing
 
 This part of the pipeline processes spatially barcoded bulk DNA sequencing data and outputs barcode-specific BAM files and fragment count matrices.
 
