@@ -2,7 +2,7 @@
 
 This part of the pipeline processes spatially barcoded bulk DNA sequencing data and outputs barcode-specific BAM files and fragment count matrices.
 
-## Step 1: Preprocessing (`preprocess.py`)
+## Step 1: Preprocessing (`spatial_DNA_pipeline.py`)
 
 This script performs:
 
