@@ -69,7 +69,7 @@ head(pbmc@meta.data)
 pbmc <- NormalizeData(pbmc, assay = "RNA")
 
 subclones <- as.vector(pbmc@meta.data$subclones)
-# Gene expression matrix for each cell,必须是RNA assay
+
 object_bulk <- as.data.frame(t(GetAssayData(pbmc, assay = "RNA", slot = "data")))
 
 # Add subclone index
@@ -228,7 +228,7 @@ for (i in 1:length(clone_name)) {
     if (cnv_genes_mean_exp_mtx_diploid[[cnv_col]][j+1] == cnv_genes_mean_exp_mtx_diploid[[cnv_col]][j]) {
       cnv_genes_mean_exp_mtx_diploid[[group_col]][j+1] <- group
     } else {
-      group <- group + 1   # CNV 变化，group +1
+      group <- group + 1  
       cnv_genes_mean_exp_mtx_diploid[[group_col]][j+1] <- group
     }
   }
