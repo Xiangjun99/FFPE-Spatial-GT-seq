@@ -4,5 +4,4 @@ This repository contains the code for the manuscript "Spatial genome-transcripto
 
 <img width="3468" height="1535" alt="scheme_for_github" src="https://github.com/user-attachments/assets/29790f5b-ac03-4c9b-8416-07fe5a06f68e" />
 
-
-
+It includes: 1) codes for processing and analyzing spatial FFPE-DNA-seq data, 2) codes for processing and analyzing spatial FFPE-RNA-seq data, 3) codes for processing and analyzing spatial FFPE-ADT-seq data, and 4) codes for processing and analyzing single-cell DNA-seq data. Specifically, this repository is organized as following folders:
