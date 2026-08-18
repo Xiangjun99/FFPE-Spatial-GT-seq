@@ -306,11 +306,11 @@ Positions:   1               16 17              26
 
 The pipeline requires:
 
-* Python 3
-* Snakemake
-* Biopython
-* BBMap (`bbduk.sh`)
-* CITE-seq-Count
+* Python  3.8.20
+* Snakemake  6.15.5
+* Biopython  1.83
+* BBMap (`bbduk.sh`)  39.33
+* CITE-seq-Count  1.4.5
 
 Python dependencies can be installed, for example, using:
 
