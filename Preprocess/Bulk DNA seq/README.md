@@ -22,6 +22,7 @@ bowtie2_paired.smk
 Paired-end FASTQ files should be gzip-compressed and follow the naming convention:
 
 {sample}_R1.fastq.gz
+
 {sample}_R2.fastq.gz
 
 ---
