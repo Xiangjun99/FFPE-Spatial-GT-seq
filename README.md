@@ -1,6 +1,6 @@
 # FFPE Spatial-GT-seq
 
-This repository contains the code associated with the manuscript **"Spatial genome-transcriptome co-mapping reveals tumor heterogeneity in FFPE tissues."**
+This repository contains the code associated with the manuscript **"Spatial genome, transcriptome, and protein sequencing of FFPE tumors reveals clonal evolution."**
 
 ## Overview
 
