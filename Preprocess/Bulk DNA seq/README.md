@@ -82,16 +82,20 @@ mm10
 ## Output files
 
 Intermediate alignment files are generated in:
+
 mapped/
 
 Sorted BAM files are generated in:
+
 sort/
 
 Final duplicate-marked BAM files are generated in:
 marked/
 
 For example:
+
 marked/Sample01.bam
+
 marked/Sample02.bam
 
 ---
