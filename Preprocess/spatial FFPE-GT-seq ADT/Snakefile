@@ -5,8 +5,8 @@ import fnmatch
 # global varibales
 ############################
 
-rawData_dir = "/gpfs/ycga/work/liu_yang/dw779/3_FFPE_Project/FFPE_Project_rawdata/Protein/6_Bladdercancer"
-processedData_dir = '/gpfs/ycga/work/liu_yang/xd97/FFPE_triomics_analysis/3_FFPE_protein/7_BladderCancer/ADT111'
+rawData_dir = "/path/to/Protein/6_Bladdercancer"
+processedData_dir = '/path/to/ADT'
 fastq_ext = '.fastq.gz' #fastq file extension
 
 core = 20 # threads to use
