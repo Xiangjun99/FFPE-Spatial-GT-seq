@@ -12,24 +12,6 @@ The final output consists of duplicate-marked BAM files.
 
 ## Workflow
 
-Paired-end FASTQ
-      |
-      v
-Bowtie2 alignment
-      |
-      v
-BAM conversion
-      |
-      v
-SAMtools sort
-      |
-      v
-Sambamba markdup
-      |
-      v
-Duplicate-marked BAM
-
-
 The workflow is implemented in:
 bowtie2_paired.smk
 
