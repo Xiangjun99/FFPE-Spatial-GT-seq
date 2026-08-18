@@ -77,7 +77,7 @@ A text file containing valid cell barcodes is used to determine which cells shou
 Example:
 
 ```text
-valid_barcodes_no_prefix1.txt
+barcodes for single cell.txt
 ```
 
 The file contains one cell barcode per line.
@@ -114,7 +114,6 @@ mm10
 
 The initial alignment was performed as part of the Cell Ranger DNA v1.1 CNV workflow.
 
-For full reproducibility, the exact Cell Ranger DNA reference package used for the original alignment should be retained or documented when available.
 
 ---
 
@@ -197,57 +196,6 @@ The BAM index allows efficient retrieval of reads from specific genomic regions 
 
 ---
 
-## SLURM array processing
-
-The per-cell BAM generation was parallelized using a SLURM job array.
-
-For each SLURM array task, one barcode is selected from the barcode list using:
-
-```bash
-BC=$(sed -n "${SLURM_ARRAY_TASK_ID}p" $BARCODES)
-```
-
-Therefore:
-
-```text
-SLURM_ARRAY_TASK_ID=1
-```
-
-uses the first barcode in the barcode file,
-
-```text
-SLURM_ARRAY_TASK_ID=2
-```
-
-uses the second barcode,
-
-and so on.
-
-Conceptually:
-
-```text
-Barcode list
-    |
-    +-- line 1 -> SLURM task 1 -> Cell 1 BAM
-    |
-    +-- line 2 -> SLURM task 2 -> Cell 2 BAM
-    |
-    +-- line 3 -> SLURM task 3 -> Cell 3 BAM
-    |
-    +-- ...
-```
-
-This allows thousands of single cells to be processed independently and in parallel on an HPC cluster.
-
-The SLURM array range should match the number of barcodes in the barcode file.
-
-For example, if the file contains 7,234 barcodes:
-
-```bash
-#SBATCH --array=1-7234
-```
-
----
 
 ## Example splitting script
 
@@ -312,11 +260,6 @@ The preprocessing workflow used:
 | SAMtools        |              1.21 | Cell-specific read extraction, BAM sorting, and indexing |
 | SLURM           | cluster dependent | Parallel processing of individual cell barcodes          |
 
-The SAMtools version can be checked using:
-
-```bash
-samtools --version
-```
 
 The version used for this analysis was:
 
@@ -325,66 +268,3 @@ samtools 1.21
 ```
 
 ---
-
-## Recommended directory structure
-
-```text
-single cell DNA-seq/
-├── README.md
-├── split_single_cell_bam.slurm
-├── valid_barcodes_no_prefix1.txt
-│
-└── example/
-    ├── possorted_bam.bam
-    └── per_cell_bam/
-        ├── CellBarcode01.sorted.bam
-        ├── CellBarcode01.sorted.bam.bai
-        ├── CellBarcode02.sorted.bam
-        ├── CellBarcode02.sorted.bam.bai
-        └── ...
-```
-
-Large BAM files are not included in the GitHub repository.
-
-Instead, the repository contains the scripts, barcode information, software versions, and processing instructions necessary to reproduce the single-cell BAM generation workflow.
-
----
-
-## Downstream analysis
-
-The resulting sorted and indexed single-cell BAM files can be used for downstream analyses such as:
-
-* single-cell copy-number variation analysis
-* read-depth analysis
-* genome-wide coverage analysis
-* chromosome-level coverage analysis
-* comparison of CNV profiles across individual cells
-
-Because each BAM corresponds to one cell, genomic coverage and copy-number profiles can be calculated independently for each cell.
-
----
-
-## Reproducibility
-
-The key parameters required to reproduce the single-cell BAM generation are:
-
-```text
-Cell Ranger DNA version: 1.1
-Reference genome: mm10
-Cell barcode BAM tag: CB
-SAMtools version: 1.21
-Sorting threads per cell: 2
-Barcode list: valid_barcodes_no_prefix1.txt
-```
-
-The essential extraction command is:
-
-```bash
-samtools view -b -d CB:$BC possorted_bam.bam \
-    | samtools sort -@ 2 -o ${BC}.sorted.bam
-
-samtools index ${BC}.sorted.bam
-```
-
-The same barcode list, Cell Ranger DNA output BAM, reference genome, and software versions should be used when reproducing the original analysis.
-
