@@ -124,5 +124,3 @@ logs/bowtie2/Sample01.log
 These logs contain Bowtie2 alignment statistics and are useful for checking mapping performance and troubleshooting failed runs.
 
 ---
-
-For complete reproducibility, users should use the same software versions and the same Bowtie2 reference indexes.
