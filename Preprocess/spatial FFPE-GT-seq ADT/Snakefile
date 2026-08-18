@@ -12,7 +12,7 @@ fastq_ext = '.fq.gz' #fastq file extension
 core = 20 # threads to use
 
 bbduk_dir = "/vast/palmer/home.mccleary/dw779/.conda/envs/atac_pipeline_env/opt/bbmap-39.33-0/bbduk.sh"
-whitelist="spatial_barcodes_new_2and4_replaced.csv"
+whitelist="spatial_barcodes.csv"
 ref_dir='TAG_LIST_Hu154.csv'
 ############################
 
