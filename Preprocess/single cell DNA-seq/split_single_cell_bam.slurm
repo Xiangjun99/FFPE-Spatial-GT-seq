@@ -9,9 +9,9 @@
 #SBATCH --mem=20G
 
 
-BAM="./possorted_bam.bam"
-BARCODES="./barcodes for single cell.txt"
-OUTDIR="./per_cell_bam_new"
+BAM="/path/to/possorted_bam.bam"
+BARCODES="/path/to/barcodes for single cell.txt"
+OUTDIR="/path/to/per_cell_bam_new"
 
 mkdir -p $OUTDIR
 
