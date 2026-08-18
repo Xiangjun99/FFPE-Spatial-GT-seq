@@ -90,6 +90,7 @@ Sorted BAM files are generated in:
 sort/
 
 Final duplicate-marked BAM files are generated in:
+
 marked/
 
 For example:
@@ -103,9 +104,11 @@ marked/Sample02.bam
 ## Log files
 
 Bowtie2 alignment logs are written to:
+
 logs/bowtie2/
 
 For example:
+
 logs/bowtie2/Sample01.log
 
 These logs contain Bowtie2 alignment statistics and are useful for checking mapping performance and troubleshooting failed runs.
