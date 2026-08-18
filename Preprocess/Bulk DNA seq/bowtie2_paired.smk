@@ -9,7 +9,7 @@
 #change the path
 FASTQ_DIR = "/path/to/FASTQ_files"
 bowtie2_index = "/path/to/GRCh38_noalt_decoy_as" #for Human
-bowtie2_index = "/path/to/mm10" #for mouse
+#bowtie2_index = "/path/to/mm10" #for mouse
 
 bowtie2_path = "bowtie2"
 samtools_path = "samtools"
